@@ -6,7 +6,7 @@ get 'logout', to: 'sessions#destroy'
 resources :users
 resources :cheeses
 
-root 'application#index'
+root 'users#new'
 
 end
 
