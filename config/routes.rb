@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
 get 'signup', to: 'users#new'
-post 'users' => 'users#create'
 get 'logout', to: 'sessions#destroy'
+
+resources :users
+resources :cheeses
+
+root 'application#index'
+
 end
 
 
