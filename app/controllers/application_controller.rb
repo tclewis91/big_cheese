@@ -3,9 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-
-  before_filter :current_user
-
   def current_user
     if @current_user.nil?
       if session[:user_id].present?
@@ -19,7 +16,6 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     unless current_user
       flash[:alert] = "You must be logged in to do that!"
-      render { message: " logged in"}
     end
   end
 end

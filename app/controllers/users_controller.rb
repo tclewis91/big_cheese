@@ -3,17 +3,23 @@ class UsersController < ApplicationController
   def new
   end
 
+  def index
+    @users = User.all
+
+  def show
+  end
 
   def create
-    @user = User.new(name: params[:name],
-                    email: params [:email],
-                    password: params[:password],
-                    password_confirmation: params[:password_confirmation])
-    if user.save
-      session[:user_id] = user.user_id
-      redirect_to '/'
-    else
-      redirect_to '/signup'
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'congrats, you just finished creating a user account' }
+        format.json { render :show, status: :created, location @user }
+      else
+        format.html { render :new }
+        format.json {render json: @user.errors, status: :unprocessable_entity}
+      end
     end
   end
 
