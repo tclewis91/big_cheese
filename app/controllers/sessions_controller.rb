@@ -9,14 +9,14 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      render { message: "lactose beware!" }
+      notice: "lactose beware!"
     else
-      render { message: "You entereed the wrong information, please try again" }
+      notice: "You entereed the wrong information, please try again"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    render "logged out"
+    notice: "logged out"
   end
 end
