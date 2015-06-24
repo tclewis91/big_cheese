@@ -4,8 +4,8 @@ var Navigation = React.createClass({
     return (
       <nav>
         <NavLink name='Home' url='/' />
-        <NavLink name='Sign Up' url='/signup'
-        <NavLink name='Log Out' url='/logout'
+        <NavLink name='Sign Up' url='/signup' />
+        <NavLink name='Log Out' url='/logout' />
         <NavLink name='Cheeses' url='/cheeses' />
         <NavLink name='User' url='/user' />
       </nav>
